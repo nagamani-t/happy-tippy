@@ -8,157 +8,44 @@
     android:background="@color/cardview_light_background"
     tools:context=".MainActivity">
 
-    <!--left column-->
-    <TextView
-        android:id="@+id/baseLevel"
-        android:layout_width="42dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="130dp"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="8sp"
-        android:text="Base"
-        android:textColor="#6D6A6A"
-        android:textSize="16sp"
-        android:typeface="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="8sp"
-        android:textColor="#6D6A6A"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/tip"
-        app:layout_constraintEnd_toEndOf="@+id/baseLevel"
-        app:layout_constraintTop_toBottomOf="@+id/baseLevel"
-        app:layout_constraintVertical_bias="0.5"
-        tools:text="24%" />
-
-    <TextView
-        android:id="@+id/tip"
-        android:layout_width="27dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="8sp"
-        android:text="Tip"
-        android:textColor="#6D6A6A"
-        android:textSize="16sp"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="@+id/baseLevel"
-        app:layout_constraintTop_toBottomOf="@+id/progress" />
-
-    <TextView
-        android:id="@+id/totalview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="8sp"
-        android:text="Total"
-        android:textColor="#6D6A6A"
-        android:textSize="16sp"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="@+id/baseLevel"
-        app:layout_constraintTop_toBottomOf="@+id/tip" />
-
-    <!--  right column-->
-
-    <EditText
-        android:id="@+id/baseNumber"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:ems="8"
-        android:hint="bill amount"
-        android:inputType="numberDecimal"
-        android:textColor="#6D6A6A"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/baseLevel"
-        app:layout_constraintStart_toEndOf="@+id/baseLevel"
-        app:layout_constraintTop_toTopOf="@+id/baseLevel"
-        tools:layout_editor_absoluteY="83dp" />
-
-    <SeekBar
-        android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="220dp"
-        android:layout_height="26dp"
-        android:contextClickable="true"
-        android:max="100"
-        android:progress="1"
-        android:progressBackgroundTint="@color/mustard"
-        android:progressTint="#7D4876"
-        android:textColor="#6D6A6A"
-        app:layout_constraintBottom_toBottomOf="@+id/progress"
-        app:layout_constraintStart_toStartOf="@+id/baseNumber"
-        app:layout_constraintTop_toTopOf="@+id/progress" />
-
-    <TextView
-        android:id="@+id/tipAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#6D6A6A"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tip"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="@+id/tip"
-        tools:text="19.96" />
-
-    <TextView
-        android:id="@+id/totalAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#6D6A6A"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/totalview"
-        app:layout_constraintStart_toStartOf="@+id/tipAmount"
-        app:layout_constraintTop_toTopOf="@+id/totalview"
-        tools:text="103.11" />
-
-    <TextView
-        android:id="@+id/footer"
-        android:layout_width="276dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="68dp"
-        android:text="Crafted With ❤️ By Nagamani Hoogar"
-        android:textAllCaps="false"
-        android:textColor="#948C8C"
+        android:background="@color/white"
+        android:clipToOutline="true"
+        android:focusable="true"
+        android:pointerIcon="hand"
+        android:outlineProvider="background"
+        app:labelVisibilityMode="unlabeled"
+        android:defaultFocusHighlightEnabled="true"
+        android:screenReaderFocusable="true"
+        android:focusableInTouchMode="false"
+        android:nextFocusUp="@color/mustard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.748"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/logoname"
-        android:layout_width="384dp"
-        android:layout_height="100dp"
-        android:fontFamily="sans-serif"
-        android:paddingLeft="20dp"
-        android:paddingTop="60dp"
-        android:text="😊 Tippy"
-        android:textColor="#3E3C3C"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/bottom_navigation" />
 
-    <TextView
-        android:id="@+id/tipDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        tools:text="Acceptable" />
-
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:navGraph="@navigation/mobile_navigation"
+        />
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragment_container_view_tag"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:navGraph="@navigation/mobile_navigation"-->
+<!--        tools:layout_editor_absoluteX="1dp"-->
+<!--        tools:layout_editor_absoluteY="1dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

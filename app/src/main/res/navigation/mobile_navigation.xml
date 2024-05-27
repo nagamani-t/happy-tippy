@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/happy_home_item">
+    <fragment
+        android:id="@+id/happy_home_item"
+        android:name="com.example.happy.HomeFragment"
+        android:label="home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/happy_tippy_item"
+        android:name="com.example.happy.TippyFragment"
+        android:label="tippy"
+        tools:layout="@layout/fragment_tippy" />
+    <fragment
+        android:id="@+id/happy_wallet_item"
+        android:name="com.example.happy.WalletFragment"
+        android:label="wallet"
+        tools:layout="@layout/fragment_wallet" />
+</navigation>
