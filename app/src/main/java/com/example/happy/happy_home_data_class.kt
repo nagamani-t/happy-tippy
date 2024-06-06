@@ -1,7 +1,7 @@
 package com.example.happy
 
 data class UsersItem(
-    val title: String,
+    val author: String,
     val url: String,
 
 )

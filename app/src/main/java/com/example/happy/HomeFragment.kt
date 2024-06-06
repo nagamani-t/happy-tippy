@@ -15,7 +15,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFragment : Fragment() {
-    var BASE_URL = "http://localhost:3000"
+    var BASE_URL = "https://picsum.photos"
     //private var homeList = ArrayList<usersItem>()
     private lateinit var adapter: happy_home_Adapter
     private lateinit var recyclerView: RecyclerView

@@ -24,6 +24,6 @@ class happy_home_Adapter (var homeList:List<UsersItem>,var con :Context):Recycle
 
      override fun onBindViewHolder(holder: home_items_ViewHolder, position: Int) {
          Glide.with(con).load(homeList[position].url).into(holder.image)
-         holder.title.text = homeList[position].title
+         holder.title.text = homeList[position].author
      }
  }
