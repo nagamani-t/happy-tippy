@@ -2,10 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="smoothGreen">#AFDE4E</color>
+    <color name="smoothGreen">#78F038</color>
     <color name="mustard">#E0C941</color>
     <color name="Rust">#DE6E4E</color>
     <color name="tintRed">#E04941</color>
     <color name="Masum">#E6CD95</color>
     <color name="seaBlue">#95D4E6</color>
+    <color name="pink">#F03781</color>
+    <color name="gray">#585656</color>
+    <color name="highlight">#A4A2A2</color>
 </resources>

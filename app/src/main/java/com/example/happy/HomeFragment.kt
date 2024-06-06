@@ -15,11 +15,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFragment : Fragment() {
-    var BASE_URL = "https://picsum.photos"
+    var BASE_URL = "https://jsonplaceholder.typicode.com"
+
     //private var homeList = ArrayList<usersItem>()
     private lateinit var adapter: happy_home_Adapter
     private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         arguments?.let {}
     }
@@ -47,7 +49,7 @@ class HomeFragment : Fragment() {
             override fun onResponse(
                 call: Call<List<UsersItem>>, response: Response<List<UsersItem>>
             ) {
-                var homeList = response.body()!!
+                var homeList = response.body() !!
                 Log.i("homelisttt",homeList.toString())
                 adapter = happy_home_Adapter(homeList, requireContext())
                 recyclerView.adapter = adapter
