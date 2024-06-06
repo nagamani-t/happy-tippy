@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 
 interface Api_Interface {
-    @GET("/v2/list")
+    @GET("/posts")
     fun getData(): Call<List<UsersItem>>
 }
