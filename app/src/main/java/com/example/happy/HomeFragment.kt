@@ -1,5 +1,6 @@
 package com.example.happy
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -20,6 +21,7 @@ class HomeFragment : Fragment() {
     //private var homeList = ArrayList<usersItem>()
     private lateinit var adapter: happy_home_Adapter
     private lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

@@ -1,6 +1,8 @@
 package com.example.happy
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,15 +10,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
 
 private const val TAG = "TippyFragment"
 private const val INITIAL_TIP_PERCENTAGE = 15
+private const val PREFS_NAME = "TippyPreferences"
+private const val BASE_AMOUNT_KEY = "baseAmount"
+private const val TIP_PERCENTAGE_KEY = "tipPercentage"
+private const val TIP_AMOUNT_KEY = "tipAmount"
+private const val TOTAL_AMOUNT_KEY = "totalAmount"
 
 class TippyFragment : Fragment() {
     private lateinit var happyBaseAmount: EditText
@@ -24,19 +33,26 @@ class TippyFragment : Fragment() {
     private lateinit var happyTipAmount: TextView
     private lateinit var happyTotalAmount: TextView
     private lateinit var happyProgressPercentage: TextView
+    private lateinit var happySaveInfoButton: Button
     private lateinit var happyTipDescription: TextView
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_tippy, container, false)
+
+        // Initialize SharedPreferences
+        sharedPreferences = requireActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
         happyBaseAmount = view.findViewById(R.id.baseNumber)
         happyTipProgressbar = view.findViewById(R.id.progressBar)
         happyTipAmount = view.findViewById(R.id.tipAmount)
         happyTotalAmount = view.findViewById(R.id.totalAmount)
         happyProgressPercentage = view.findViewById(R.id.progress)
         happyTipDescription = view.findViewById(R.id.tipDescription)
+        happySaveInfoButton = view.findViewById(R.id.saveTipButton)
 
         happyTipProgressbar.progress = INITIAL_TIP_PERCENTAGE
         happyProgressPercentage.text = "$INITIAL_TIP_PERCENTAGE%"
@@ -50,11 +66,9 @@ class TippyFragment : Fragment() {
                 updateTipDescription(progress)
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
         happyBaseAmount.addTextChangedListener(object : TextWatcher {
@@ -67,6 +81,20 @@ class TippyFragment : Fragment() {
                 computeTipAndTotal()
             }
         })
+
+        happySaveInfoButton.setOnClickListener {
+            if (happyBaseAmount.text.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter the base amount", Toast.LENGTH_SHORT).show()
+            } else {
+                saveTipInfo()
+                Toast.makeText(requireContext(), "Information saved", Toast.LENGTH_SHORT).show()
+//                val walletFragment = WalletFragment()
+//                parentFragmentManager.beginTransaction()
+//                    .replace(R.id.nav_host_fragment_activity_main, walletFragment)
+//                    .commit()
+            }
+        }
+
 
         return view
     }
@@ -102,4 +130,22 @@ class TippyFragment : Fragment() {
         happyTipAmount.text = "%.2f".format(tipAmount)
         happyTotalAmount.text = "%.2f".format(totalAmount)
     }
+
+    private fun saveTipInfo() {
+        val baseAmount = happyBaseAmount.text.toString()
+        val tipPercentage = happyTipProgressbar.progress.toString()
+        val tipAmount = happyTipAmount.text.toString()
+        val totalAmount = happyTotalAmount.text.toString()
+
+        val editor = sharedPreferences.edit()
+        editor.putString(BASE_AMOUNT_KEY, baseAmount)
+        editor.putString(TIP_PERCENTAGE_KEY, tipPercentage)
+        editor.putString(TIP_AMOUNT_KEY, tipAmount)
+        editor.putString(TOTAL_AMOUNT_KEY, totalAmount)
+        editor.apply()
+
+        Log.i(TAG, "Tip info saved: baseAmount=$baseAmount, tipPercentage=$tipPercentage, tipAmount=$tipAmount, totalAmount=$totalAmount")
+    }
 }
+
+

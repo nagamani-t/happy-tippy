@@ -1,16 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tintRed"
     tools:context=".WalletFragment">
 
     <TextView
-        android:layout_width="264dp"
+        android:id="@+id/baseNote"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:text="@string/wallet" />
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="90dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="8sp"
+        android:text="Base amount"
+        android:textColor="#6D6A6A"
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/progressNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="8sp"
+        android:textColor="#6D6A6A"
+        android:textSize="16sp"
+        android:text="tip percentage"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/tipNote"
+        app:layout_constraintEnd_toEndOf="@+id/baseNote"
+        app:layout_constraintTop_toBottomOf="@+id/baseNote"
+        app:layout_constraintVertical_bias="0.5"
+ />
+
+    <TextView
+        android:id="@+id/tipNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="8sp"
+        android:text="Tip amount"
+        android:textColor="#6D6A6A"
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="@+id/baseNote"
+        app:layout_constraintTop_toBottomOf="@+id/progressNote" />
+
+    <TextView
+        android:id="@+id/totalviewNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="8sp"
+        android:text="Total tip amount"
+        android:textColor="#6D6A6A"
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="@+id/baseNote"
+        app:layout_constraintTop_toBottomOf="@+id/tipNote" />
+
+    <!-- Right column -->
+    <TextView
+        android:id="@+id/baseNumberNote"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:ems="8"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/baseNote"
+        app:layout_constraintStart_toEndOf="@+id/baseNote"
+        app:layout_constraintTop_toTopOf="@+id/baseNote"
+        tools:text="19.96"/>
+
+    <TextView
+        android:id="@+id/progressPercentNote"
+        android:layout_width="220dp"
+        android:layout_height="26dp"
+        android:contextClickable="true"
+        android:max="100"
+        android:progress="1"
+        app:layout_constraintBottom_toBottomOf="@+id/progressNote"
+        app:layout_constraintStart_toStartOf="@+id/baseNumberNote"
+        app:layout_constraintTop_toTopOf="@+id/progressNote"
+        tools:text="19.96"/>
+
+    <TextView
+        android:id="@+id/tipAmountNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#6D6A6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tipNote"
+        app:layout_constraintStart_toStartOf="@+id/progressPercentNote"
+        app:layout_constraintTop_toTopOf="@+id/tipNote"
+        tools:text="19.96" />
+
+    <TextView
+        android:id="@+id/totalAmountNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#6D6A6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/totalviewNote"
+        app:layout_constraintStart_toStartOf="@+id/tipAmountNote"
+        app:layout_constraintTop_toTopOf="@+id/totalviewNote"
+        tools:text="103.11" />
+
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="225dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="108dp"
+        android:text="Crafted With ❤️ By Nagamani Hoogar"
+        android:textAllCaps="false"
+        android:textColor="#948C8C"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/logoname"
+        android:layout_width="384dp"
+        android:layout_height="100dp"
+        android:fontFamily="sans-serif"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="💰 Wallet"
+        android:textColor="#585656"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
