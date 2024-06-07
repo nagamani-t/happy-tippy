@@ -154,4 +154,21 @@
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
         tools:text="Acceptable" />
 
+    <Button
+        android:id="@+id/saveTipButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="412dp"
+        android:text="save tip info 🤑"
+       android:shadowColor="@color/black"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logoname" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

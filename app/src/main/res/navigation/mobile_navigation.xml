@@ -13,10 +13,18 @@
         android:id="@+id/happy_tippy_item"
         android:name="com.example.happy.TippyFragment"
         android:label="tippy"
-        tools:layout="@layout/fragment_tippy" />
+        tools:layout="@layout/fragment_tippy" >
+        <action
+            android:id="@+id/action_happy_tippy_item_to_happy_wallet_item"
+            app:destination="@id/happy_wallet_item" />
+    </fragment>
     <fragment
         android:id="@+id/happy_wallet_item"
         android:name="com.example.happy.WalletFragment"
         android:label="wallet"
-        tools:layout="@layout/fragment_wallet" />
+        tools:layout="@layout/fragment_wallet" >
+        <action
+            android:id="@+id/action_happy_wallet_item_to_happy_tippy_item"
+            app:destination="@id/happy_tippy_item" />
+    </fragment>
 </navigation>

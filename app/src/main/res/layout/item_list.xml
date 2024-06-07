@@ -16,6 +16,8 @@
         app:cardElevation="10dp"
         app:cardMaxElevation="12dp"
         app:cardPreventCornerOverlap="true"
+        android:outlineAmbientShadowColor="@color/pink"
+        android:outlineSpotShadowColor="@color/pink"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +43,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
                 android:text="title"
                 android:textSize="20dp" />
 
